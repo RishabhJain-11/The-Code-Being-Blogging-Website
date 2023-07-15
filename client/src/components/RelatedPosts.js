@@ -1,25 +1,28 @@
-import { useEffect, useState } from "react"
-import Post from "../components/RelPosts";
-// import Post from "../components/Post"
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const RelatedPosts = () => {
-    const [posts, setPosts] = useState([]);
+export default function RelatedPosts({ postId }) {
+    const [relatedPosts, setRelatedPosts] = useState([]);
+
     useEffect(() => {
-        fetch('http://localhost:4000/post').then(response => {
-            response.json().then(posts => {
-                setPosts(posts);
+        fetch(`http://localhost:4000/post/${postId}/related`)
+            .then((response) => response.json())
+            .then((data) => setRelatedPosts(data))
+            .catch((error) => {
+                console.error("Error fetching related posts:", error);
             });
-        })
-    }, []);
-    return (
-        <>  
-            <hr />
-            <h2>All Related Posts</h2>
-            {posts.length > 0 && posts.map(post => (
-                <Post {...post} />
-            ))}
-        </>
-    )
-}
+    }, [postId]);
 
-export default RelatedPosts
+    return (
+        <div className="related-posts">
+            <h2>Related Posts</h2>
+            <ul>
+                {relatedPosts.map((post) => (
+                    <li key={post.id}>
+                        <Link to={`/post/${post.id}`}>{post.title}</Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}

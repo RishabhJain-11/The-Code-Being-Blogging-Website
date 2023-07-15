@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
   /* font-family: Inconsolata; */
@@ -201,4 +205,108 @@ div.post-page a.edit-btn {
 
 a svg {
   height: 20px;
+}
+
+/* Only for review */
+
+.products {
+  margin: 20px;
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.products__single {
+  height: 250px;
+  list-style: none;
+  padding: 20px;
+  background-color: rgb(220, 220, 220);
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Imp on clickables */
+}
+
+.products__single>img {
+  width: 100%;
+  height: 95%;
+  object-fit: cover;
+  margin-bottom: 3px;
+}
+
+.pagination {
+  padding: 10px;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination>span {
+  padding: 15px 20px;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.pagination__disable {
+  opacity: 0;
+}
+
+.pagination__selected {
+  background-color: rgb(220, 220, 220);
+}
+.topnav {
+  background-color: #d1d5db;
+  border: 5px solid #52525b;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.topnav input[type="search"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.topnav input[type="search"]:focus {
+  outline: none;
+  border-color: #0366d6;
+  box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 4px;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #000;
+}
+
+.pagination button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: #000;
+}
+
+.pagination button:hover:not(.active) {
+  background-color: #e6e6e6;
+  color: black;
 }

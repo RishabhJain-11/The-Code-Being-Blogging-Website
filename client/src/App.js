@@ -10,6 +10,7 @@ import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
 import { Route, Routes } from 'react-router-dom';
+// import Indexer from './pages/Indexer';
 
 function App() {
   return (

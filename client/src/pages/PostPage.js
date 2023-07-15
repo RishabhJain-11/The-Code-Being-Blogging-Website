@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom"
 import { formatISO9075 } from "date-fns";
 import { UserContext } from "../components/UserContext";
 import { Link } from 'react-router-dom';
-import Comments from "../components/Comments";
-import Ratings from "../components/Ratings";
+// import Comments from "../components/Comments";
+// import Ratings from "../components/Ratings";
 import RelatedPosts from "../components/RelatedPosts";
 
 export default function PostPage() {
@@ -43,8 +43,6 @@ export default function PostPage() {
                 <img src={`http://localhost:4000/${postInfo.cover}`} alt="" />
             </div>
             <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
-            <Ratings />
-            <Comments />
             <RelatedPosts />
         </div>
     );

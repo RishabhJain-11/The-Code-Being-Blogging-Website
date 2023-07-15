@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
-export default function Post({ _id, title, summary, cover, content, author }) {
+export default function Post({ _id, title, summary, cover, content, createdAt, author }) {
 
     return (
         <div className="post">
             <div className="image">
-                <Link to={`/post/${_id}`}>
+                <Link to={`/post/${_id}`} target="_blank">
                     <img src={'http://localhost:4000/' + cover} alt="" />
                 </Link>
             </div>
@@ -19,6 +19,7 @@ export default function Post({ _id, title, summary, cover, content, author }) {
                 </p>
                 <p className="summary">{summary}</p>
             </div>
+            <Navigate to={`/post/${_id}`}></Navigate>
         </div>
     );
 }
