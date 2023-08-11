@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Editor from "../components/Editor";
+import EditPostHeader from '../components/EditPostHeader'
 
 export default function EditPost() {
     const { id } = useParams();
@@ -49,19 +50,22 @@ export default function EditPost() {
     }
 
     return (
-        <form onSubmit={updatePost}>
-            <input type="title"
-                placeholder={'Title'}
-                value={title}
-                onChange={ev => setTitle(ev.target.value)} />
-            <input type="summary"
-                placeholder={'Summary'}
-                value={summary}
-                onChange={ev => setSummary(ev.target.value)} />
-            <input type="file"
-                onChange={ev => setFiles(ev.target.files)} />
-            <Editor onChange={setContent} value={content} />
-            <button style={{ marginTop: '5px' }}>Update post</button>
-        </form>
+        <>
+            <EditPostHeader />
+            <form onSubmit={updatePost}>
+                <input type="title"
+                    placeholder={'Title'}
+                    value={title}
+                    onChange={ev => setTitle(ev.target.value)} />
+                <input type="summary"
+                    placeholder={'Summary'}
+                    value={summary}
+                    onChange={ev => setSummary(ev.target.value)} />
+                <input type="file"
+                    onChange={ev => setFiles(ev.target.files)} />
+                <Editor onChange={setContent} value={content} />
+                <button className='bg-red-700 text-red-100 font-bold' style={{ marginTop: '5px' }}>Update post</button>
+            </form>
+        </>
     );
 }

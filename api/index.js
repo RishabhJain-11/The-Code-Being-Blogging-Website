@@ -1,11 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const { mongoose } = require("mongoose");
+const mongoose = require("mongoose");
+const dotenv = require('dotenv');
 const User = require("./models/User");
 const Post = require("./models/Post");
 const bcrypt = require('bcrypt');
-const Comment = require('./models/Comments');
-// const Like = require('./models/Like');
 const app = express();
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
@@ -13,17 +12,16 @@ const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' })
 const fs = require('fs');
 
-
+dotenv.config();
 const salt = bcrypt.genSaltSync(10);
-const secret = 'asdfe45we45w345wegw345werjktjwertkj';
+const secret = process.env.SECRET_KEY;
 
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
-// mongoose.connect("mongodb://rishabh_jain:rishabhjain@cluster0.lby8ezu.mongodb.net/?retryWrites=true&w=majority");
-mongoose.connect("mongodb://127.0.0.1:27017/blog", {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log("Connection Success")).catch((err) => console.log(err))
@@ -148,36 +146,3 @@ app.listen(4000, () => {
     console.log("OK");
 })
 
-app.post('/comment', async (req, res) => {
-    const { postId, content } = req.body;
-    const { token } = req.cookies;
-    try {
-        const decoded = jwt.verify(token, secret);
-        const comment = await Comment.create({
-            postId,
-            userId: decoded.id,
-            content,
-        });
-        res.json(comment);
-    } catch (error) {
-        console.error(error);
-        res.status(400).json('Error creating comment');
-    }
-});
-
-// Create a new like
-app.post('/post/:id/like', async (req, res) => {
-    const { postId } = req.body;
-    const { token } = req.cookies;
-    try {
-        const decoded = jwt.verify(token, secret);
-        const like = await Like.create({
-            postId,
-            userId: decoded.id,
-        });
-        res.json(like);
-    } catch (error) {
-        console.error(error);
-        res.status(400).json('Error creating like');
-    }
-});

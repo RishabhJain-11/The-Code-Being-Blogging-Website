@@ -23,8 +23,8 @@ export default function PostPage() {
 
     return (
         <div className="post-page">
-            <h1>{postInfo.title}</h1>
-            <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
+            <h1 className="font-bold underline underline-offset-8">{postInfo.title}</h1>
+            <time className="font-bold underline underline-offset-8">{formatISO9075(new Date(postInfo.createdAt))}</time>
             <div className="author">by @{postInfo.author?.username}</div>
             {userInfo.id === postInfo.author._id && (
                 <div className="edit-row">
@@ -36,11 +36,11 @@ export default function PostPage() {
                     </Link>
                 </div>
             )}
-            <div className="image">
+            <hr/>
+            <div className="image mb-20">
                 <img src={`http://localhost:4000/${postInfo.cover}`} alt="" />
             </div>
             <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
-            
         </div>
     );
 }

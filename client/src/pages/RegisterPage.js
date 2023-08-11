@@ -19,7 +19,7 @@ export default function RegisterPage() {
     }
     return (
         <form className="register" onSubmit={register}>
-            <h1>Register</h1>
+            <h1 className="mb-5 underline underline-offset-8">Register</h1>
             <input
                 type="text"
                 placeholder="Username"
@@ -31,7 +31,7 @@ export default function RegisterPage() {
                 value={password}
                 onChange={ev => setPassword(ev.target.value)}
             />
-            <button>Register</button>
+            <button className="text-red-100 bg-red-700">Register</button>
         </form>
     )
 }

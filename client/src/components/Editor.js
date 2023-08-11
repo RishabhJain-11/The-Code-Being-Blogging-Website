@@ -17,11 +17,6 @@ export default function Editor({ value, onChange }) {
     };
     return (
         <div className="content">
-            {/* <ReactQuill
-                value={value}
-                theme={'snow'}
-                onChange={onChange}
-                modules={modules} /> */}
             <ReactQuill modules={modules} theme="snow" onChange={onChange} placeholder="The Content goes here..." />
         </div>
     );

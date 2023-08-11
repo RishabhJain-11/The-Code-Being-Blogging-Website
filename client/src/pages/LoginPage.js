@@ -32,7 +32,7 @@ export default function LoginPage() {
     }
     return (
         <form className="login" onSubmit={login}>
-            <h1>Login</h1>
+            <h1 className="mb-5 underline underline-offset-8">Login</h1>
             <input type="text"
                 placeholder="username"
                 value={username}
@@ -41,7 +41,7 @@ export default function LoginPage() {
                 placeholder="password"
                 value={password}
                 onChange={ev => setPassword(ev.target.value)} />
-            <button>Login</button>
+            <button className="text-red-100 bg-red-700">Login</button>
         </form>
     );
 }

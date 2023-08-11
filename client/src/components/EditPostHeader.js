@@ -9,13 +9,13 @@ const CreatePostHeader = () => {
                         <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
                             Welcome Back, Boss!
                         </h1>
-                        <hr className='font-bold'/>
+                        <hr className='font-bold' />
                         <h6 class="text-xl font-bold text-gray-900">
-                            Join the cosmic conversation! 🚀✍️ Contribute your starry insights to our celestial blogosphere and shine a light on the universe's untold tales. 🌌📝
+                            Craft your digital journal with a sprinkle of ✍️ contributions – your words, our canvas! Express your thoughts in the digital 🌐 realm, where every keystroke paints a unique chapter.
                         </h6>
 
                         <p class="mt-1.5 text-md font-semibold text-gray-500">
-                            Let's write a new blog post! 🎉
+                            Let's edit your blog post! 🎉
                         </p>
                     </div>
                 </div>

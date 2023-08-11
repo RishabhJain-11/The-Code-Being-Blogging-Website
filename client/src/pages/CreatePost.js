@@ -58,7 +58,7 @@ export default function CreatePost() {
                     value={content}
                     onChange={setContent}
                 />
-                <button style={{ marginTop: '5px' }}>Create post</button>
+                <button className='bg-red-700 text-red-100 font-bold' style={{ marginTop: '5px' }}>Create post</button>
             </form>
         </>
     )

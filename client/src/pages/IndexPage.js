@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Post from "../components/Post";
-import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Accordion from "../components/Accordion";
 import BannerTwo from "../components/BannerTwo";
@@ -30,7 +29,16 @@ export default function IndexPage() {
     };
 
     const filteredPosts = posts.filter((post) => {
-        return post.title.toLowerCase().includes(searchQuery.toLowerCase());
+        const searchLower = searchQuery.toLowerCase();
+        const titleLower = post.title.toLowerCase();
+        const summaryLower = post.summary.toLowerCase();
+        const authorUsernameLower = post.author?.username.toLowerCase() || ''; // Handle cases where author or username might be undefined
+
+        return (
+            titleLower.includes(searchLower) ||
+            summaryLower.includes(searchLower) ||
+            authorUsernameLower.includes(searchLower)
+        );
     });
 
     const numberOfPages = Math.ceil(filteredPosts.length / postsPerPage); // Total number of pages
@@ -69,13 +77,12 @@ export default function IndexPage() {
 
     return (
         <>
-            {/* <Banner /> */}
-
+          
             <section class=" dark:bg-gray-900 mb-5">
                 <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-10">
                     <div class=" dark:bg-gray-800 border border-red-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
 
-                        <h1 class="text-gray-900 dark:text-white text-2xl md:text-4xl font-extrabold mb-2">👨‍💻 Welcome to the digital library built by coders, for coders! Explore a world of coding wisdom and innovation curated just for you. 🚀 Unfold the digital scrolls and write your code-laden destiny with us.🔥</h1>
+                        <h1 class="text-gray-900 dark:text-white text-2xl md:text-3xl font-extrabold mb-2">👨‍💻 Welcome to the digital library built by coders, for the coders! Explore a world of coding wisdom and innovation curated just for you. 🚀 Unfold the digital scrolls and write your code-laden destiny with us.🔥</h1>
                         <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">🚀🤖 Ignite your software wizardry and embark on a digital journey where creativity meets innovation. Dive into a realm designed exclusively for the modern-day sorcerers of code – a sanctuary where developers like you reshape the digital landscape one line at a time. 🌐👩‍💻👨‍💻 Unleash your potential and let your keystrokes create the future!</p>
                         <Treat></Treat>
                         <div className="topnav">
@@ -84,17 +91,7 @@ export default function IndexPage() {
                     </div>
                 </div>
             </section>
-            {/* <div className="topnav">
-                <input onChange={handleSearch} type="search" placeholder="Search for the blogs..." />
-            </div> */}
-
-            {/* <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
-                {currentPosts.length > 0 ? (
-                    currentPosts.map((post) => <Post key={post.id} {...post} />)
-                ) : (
-                    <p>No posts found.</p>
-                )}
-            </div> */}
+            
             {currentPosts.length > 0 ? (
                 currentPosts.map((post) => <Post key={post.id} {...post} />)
             ) : (
@@ -118,8 +115,6 @@ export default function IndexPage() {
                     Next
                 </button>
             </div>
-
-
             <BannerTwo />
             <Accordion />
             <Footer />
