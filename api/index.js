@@ -4,6 +4,8 @@ const { mongoose } = require("mongoose");
 const User = require("./models/User");
 const Post = require("./models/Post");
 const bcrypt = require('bcrypt');
+const Comment = require('./models/Comments');
+// const Like = require('./models/Like');
 const app = express();
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
@@ -145,3 +147,37 @@ app.get('/post/:id', async (req, res) => {
 app.listen(4000, () => {
     console.log("OK");
 })
+
+app.post('/comment', async (req, res) => {
+    const { postId, content } = req.body;
+    const { token } = req.cookies;
+    try {
+        const decoded = jwt.verify(token, secret);
+        const comment = await Comment.create({
+            postId,
+            userId: decoded.id,
+            content,
+        });
+        res.json(comment);
+    } catch (error) {
+        console.error(error);
+        res.status(400).json('Error creating comment');
+    }
+});
+
+// Create a new like
+app.post('/post/:id/like', async (req, res) => {
+    const { postId } = req.body;
+    const { token } = req.cookies;
+    try {
+        const decoded = jwt.verify(token, secret);
+        const like = await Like.create({
+            postId,
+            userId: decoded.id,
+        });
+        res.json(like);
+    } catch (error) {
+        console.error(error);
+        res.status(400).json('Error creating like');
+    }
+});

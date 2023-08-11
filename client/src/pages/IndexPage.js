@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import Post from "../components/Post";
+import Banner from "../components/Banner";
+import Footer from "../components/Footer";
+import Accordion from "../components/Accordion";
+import BannerTwo from "../components/BannerTwo";
+import Treat from "../components/Treat";
+
 
 export default function IndexPage() {
     const [posts, setPosts] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const postsPerPage = 5; // Number of posts per page
-    const paginationRange = 5; // Number of pagination links to display
+    const postsPerPage = 6; // Number of posts per page
+    const paginationRange = 6; // Number of pagination links to display
 
     useEffect(() => {
         fetch("http://localhost:4000/post")
@@ -63,10 +69,32 @@ export default function IndexPage() {
 
     return (
         <>
-            <div className="topnav">
-                <input onChange={handleSearch} type="search" placeholder="Search for the blogs..." />
-            </div>
+            {/* <Banner /> */}
 
+            <section class=" dark:bg-gray-900 mb-5">
+                <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-10">
+                    <div class=" dark:bg-gray-800 border border-red-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+
+                        <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">How to quickly deploy a static website</h1>
+                        <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers.</p>
+                        <Treat></Treat>
+                        <div className="topnav">
+                            <input onChange={handleSearch} type="search" placeholder="Search for the blogs..." />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* <div className="topnav">
+                <input onChange={handleSearch} type="search" placeholder="Search for the blogs..." />
+            </div> */}
+
+            {/* <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+                {currentPosts.length > 0 ? (
+                    currentPosts.map((post) => <Post key={post.id} {...post} />)
+                ) : (
+                    <p>No posts found.</p>
+                )}
+            </div> */}
             {currentPosts.length > 0 ? (
                 currentPosts.map((post) => <Post key={post.id} {...post} />)
             ) : (
@@ -90,6 +118,11 @@ export default function IndexPage() {
                     Next
                 </button>
             </div>
+
+
+            <BannerTwo />
+            <Accordion />
+            <Footer />
         </>
     );
 }
