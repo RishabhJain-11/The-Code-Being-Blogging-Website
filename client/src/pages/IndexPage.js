@@ -75,8 +75,8 @@ export default function IndexPage() {
                 <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-10">
                     <div class=" dark:bg-gray-800 border border-red-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
 
-                        <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">How to quickly deploy a static website</h1>
-                        <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers.</p>
+                        <h1 class="text-gray-900 dark:text-white text-2xl md:text-4xl font-extrabold mb-2">👨‍💻 Welcome to the digital library built by coders, for coders! Explore a world of coding wisdom and innovation curated just for you. 🚀 Unfold the digital scrolls and write your code-laden destiny with us.🔥</h1>
+                        <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">🚀🤖 Ignite your software wizardry and embark on a digital journey where creativity meets innovation. Dive into a realm designed exclusively for the modern-day sorcerers of code – a sanctuary where developers like you reshape the digital landscape one line at a time. 🌐👩‍💻👨‍💻 Unleash your potential and let your keystrokes create the future!</p>
                         <Treat></Treat>
                         <div className="topnav">
                             <input onChange={handleSearch} type="search" placeholder="Search for the blogs..." />
@@ -101,7 +101,7 @@ export default function IndexPage() {
                 <p>No posts found.</p>
             )}
 
-            <div className="pagination">
+            <div className="pagination font-extrabold">
                 <button onClick={goToPreviousPage} disabled={currentPage === 1}>
                     Previous
                 </button>

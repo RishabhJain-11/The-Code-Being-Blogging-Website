@@ -13,46 +13,37 @@ const Footer = () => {
                 </div>
 
                 <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-                    consequuntur amet culpa cum itaque neque.
+
+                    Forge the industry's destiny with the hammer of your knowledge, sculpting a future that resonates with innovation. 🔨🌟
                 </p>
 
                 <ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
                     <li>
                         <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
-                            About
+                            Github
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            DevFolio
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            Showwcase
                         </a>
                     </li>
 
-                    <li>
-                        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
-                            Careers
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
-                            History
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
-                            Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
-                            Projects
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
-                            Blog
-                        </a>
-                    </li>
                 </ul>
 
                 <ul class="mt-12 flex justify-center gap-6 md:gap-8">
@@ -169,6 +160,12 @@ const Footer = () => {
                         </a>
                     </li>
                 </ul>
+                <div class="flex justify-center text-red-600 font-extrabold underline underline-offset-8">
+                    <div className="logor">
+                        {/* <img src={logo} alt="" className="nav-logo" /> */}
+                        <p to="/" className="mt-5">Made with 💖 by Rishabh Jain</p>
+                    </div>
+                </div>
             </div>
         </footer>
     )

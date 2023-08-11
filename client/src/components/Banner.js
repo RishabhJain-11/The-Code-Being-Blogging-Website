@@ -13,8 +13,9 @@ const Banner = () => {
                       </svg>
                       Tutorial
                   </a>
-                  <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">How to quickly deploy a static website</h1>
-                  <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers.</p>
+                  <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">We welcome you to digital library built for the coders by the coders.</h1>
+                  <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">
+                      🚀 Welcome to our coding haven! 🤖 Ignite your software wizardry and embark on a digital journey where creativity meets innovation. Dive into a realm designed exclusively for the modern-day sorcerers of code – a sanctuary where developers like you reshape the digital landscape one line at a time. 🌐👩‍💻👨‍💻 Unleash your potential and let your keystrokes create the future!</p>
                   
               </div>
           </div>
